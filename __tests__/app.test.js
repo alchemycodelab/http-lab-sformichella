@@ -33,4 +33,16 @@ describe('app routes', () => {
     expect(response.text).toEqual('<h1>blue</h1>');
     expect(response.type).toEqual('text/html');
   });
+
+  it('returns status code 200 and some plain text', async() => {
+    const data = 'some plain text';
+
+    const response = await request(app)
+      .post('/echo')
+      .send('some plain text');
+
+    expect(response.status).toEqual('200 OK');
+    expect(response.type).toEqual('text/plain');
+    expect(response.text).toEqual(data);
+  });
 });
