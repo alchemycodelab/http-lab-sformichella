@@ -41,7 +41,7 @@ describe('app routes', () => {
       .post('/echo')
       .send('some plain text');
 
-    expect(response.status).toEqual('200 OK');
+    expect(response.status).toEqual(200);
     expect(response.type).toEqual('text/plain');
     expect(response.text).toEqual(data);
   });
