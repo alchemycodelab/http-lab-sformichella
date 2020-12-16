@@ -15,5 +15,14 @@ describe('app routes', () => {
       .get('/red');
 
     expect(response.text).toEqual('<h1>red</h1>');
+    expect(response.type).toEqual('text/html');
+  });
+
+  it('returns green inside an h1 element', async() => {
+    const response = await request(app)
+      .get('/green');
+
+    expect(response.text).toEqual('<h1>green</h1>');
+    expect(response.type).toEqual('text/html');
   });
 });
